@@ -46,10 +46,10 @@ public class StudentService {
             Student student = optionalStudent.get();
             student.setRegistrationConfirmation(true);
             this.studentRepository.save(student);
-            //System.out.println("Confirmation");
+
             return "Confirmation successful... now you can login...";
         } else {
-            //System.out.println("Student with confirmation token " + confirmToken + " not found");
+
             return "Student with confirmation token " + confirmToken + " not found";
         }
     }
