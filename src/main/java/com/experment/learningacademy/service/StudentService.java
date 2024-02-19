@@ -22,7 +22,6 @@ public class StudentService {
         this.studentRepository.save(student);
 
         String toEmail = student.getEmail();
-        //System.out.println(student.getStudentId());
 
         String text = "hi Mr." + student.getFirstName() + " Thank you for registration,please confirm" +
                 "your registrtion by click on the below link ";
