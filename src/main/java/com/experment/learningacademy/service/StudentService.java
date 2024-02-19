@@ -22,7 +22,7 @@ public class StudentService {
         this.studentRepository.save(student);
 
         String toEmail = student.getEmail();
-        System.out.println(student.getStudentId());
+        //System.out.println(student.getStudentId());
 
         String text = "hi Mr." + student.getFirstName() + " Thank you for registration,please confirm" +
                 "your registrtion by click on the below link ";
@@ -46,10 +46,10 @@ public class StudentService {
             Student student = optionalStudent.get();
             student.setRegistrationConfirmation(true);
             this.studentRepository.save(student);
-            System.out.println("Confirmation");
+            //System.out.println("Confirmation");
             return "Confirmation successful... now you can login...";
         } else {
-            System.out.println("Student with confirmation token " + confirmToken + " not found");
+            //System.out.println("Student with confirmation token " + confirmToken + " not found");
             return "Student with confirmation token " + confirmToken + " not found";
         }
     }
