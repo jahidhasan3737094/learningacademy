@@ -43,7 +43,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t learningacademy .
+          docker build -t learningacademy:latest .
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
@@ -53,5 +53,5 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker tag your-docker-image-name your-docker-username/learningacademy
-          docker push your-docker-username/learningacademy
+          docker tag learningacademy:latest your-docker-username/learningacademy:latest
+          docker push your-docker-username/learningacademy:latest
