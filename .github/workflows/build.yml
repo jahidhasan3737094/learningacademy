@@ -53,5 +53,5 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker tag learningacademy:latest your-docker-username/learningacademy:latest
-          docker push your-docker-username/learningacademy:latest
+          docker tag learningacademy:jahid094/learningacademy:latest
+          docker push jahid094/learningacademy:latest
