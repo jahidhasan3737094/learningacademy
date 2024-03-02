@@ -1,23 +1,27 @@
-#Use AdoptOpenJDK 17 as base image
-FROM openjdk as builder
-#set working directory
+# Use AdoptOpenJDK 17 as base image
+FROM adoptopenjdk:17-jdk-hotspot as builder
+
+# Set working directory
 WORKDIR /app
 
-#copy Maven build files
+# Copy Maven build files
 COPY pom.xml .
 COPY src ./src
 
-#build the project
+# Build the project
 RUN ./mvnw package -DskipTests
 
-#Create a similer JRE image for production
-FROM openjdk:17
+# Create a smaller JRE image for production
+FROM adoptopenjdk:17-jre-hotspot
+
 # Set working directory
 WORKDIR /app
+
 # Copy the built JAR file from the builder stage
-COPY --from=builder   target/learningacademy-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/learningacademy-0.0.1-SNAPSHOT.jar app.jar
+
 # Expose the port
 EXPOSE 8080
+
 # Command to run the application
 CMD ["java", "-jar", "app.jar"]
-#ENTRYPOINT ["java","-jar","/app.jar"]
