@@ -1,5 +1,5 @@
 # Use AdoptOpenJDK 17 as base image
-FROM openjdk:17-jdk-hotspot as builder
+FROM openjdk:17-jdk as builder
 
 # Set working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 # Create a smaller JRE image for production
-FROM openjdk:17-jre-hotspot
+FROM openjdk:17-jre
 
 # Set working directory
 WORKDIR /app
