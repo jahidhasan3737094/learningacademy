@@ -2,7 +2,7 @@
 FROM openjdk:17 as builder
 
 # Set working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Copy Maven build files
 COPY pom.xml .
@@ -15,7 +15,7 @@ COPY src ./src
 FROM openjdk:17-jdk-slim
 
 # Set working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the built JAR file from the builder stage
 COPY --from=builder /app/target/learningacademy-0.0.1-SNAPSHOT.jar app.jar
