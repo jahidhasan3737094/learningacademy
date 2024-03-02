@@ -12,7 +12,7 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 # Create a smaller JRE image for production
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 
 # Set working directory
 WORKDIR /app
