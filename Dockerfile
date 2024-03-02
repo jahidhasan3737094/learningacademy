@@ -1,5 +1,5 @@
 #Use AdoptOpenJDK 17 as base image
-FROM adoptopenjdk:17-jdk-hotspot as builder
+FROM openjdk as builder
 #set working directory
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 #Create a similer JRE image for production
-FROM adoptopenjdk:17-jre-hotspot
+FROM openjdk:17
 # Set working directory
 WORKDIR /app
 # Copy the built JAR file from the builder stage
