@@ -9,7 +9,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the project
-RUN ./mvnw package -DskipTests
+#RUN ./mvnw package -DskipTests
 
 # Create a smaller JRE image for production
 FROM openjdk:17-jdk-slim
